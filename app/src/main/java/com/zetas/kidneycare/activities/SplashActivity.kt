@@ -40,14 +40,14 @@ class SplashActivity : AppCompatActivity() {
             if(auth.currentUser!=null){
                 withContext(Dispatchers.Main){
                     Toast.makeText(this@SplashActivity,"Welcome Back!",Toast.LENGTH_SHORT).show()
-                    var intent = Intent(this@SplashActivity, MainActivity::class.java)
+                    val intent = Intent(this@SplashActivity, AwareActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
             }else{
                 withContext(Dispatchers.Main){
                     Toast.makeText(this@SplashActivity,"Please Login",Toast.LENGTH_SHORT).show()
-                    var intent = Intent(this@SplashActivity, LoginActivity::class.java)
+                    val intent = Intent(this@SplashActivity, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

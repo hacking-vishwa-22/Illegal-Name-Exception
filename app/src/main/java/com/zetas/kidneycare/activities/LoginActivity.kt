@@ -29,9 +29,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       //init firebase auth
+        //init firebase auth
         auth = FirebaseAuth.getInstance()
-
 
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -48,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signIn() {
-        if(googleClient!=null){
+        if (googleClient != null) {
             val signInIntent: Intent = googleClient!!
                 .getSignInIntent()
             startActivityForResult(signInIntent, 6969)
@@ -64,17 +63,20 @@ class LoginActivity : AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
 
             try {
-                val account:GoogleSignInAccount = task.getResult(ApiException::class.java)
-                    firebaseAuthWithGoogle(account.idToken!!)
+                val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account.idToken!!)
 
 
             } catch (e: ApiException) {
-                Toast.makeText(this@LoginActivity, "Something Went Wrong! getting task : ${e.stackTrace}", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Something Went Wrong! getting task : ${e.message}",
+                    Toast.LENGTH_LONG
+                ).show()
                 googleClient?.signOut()
             }
         }
     }
-
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
@@ -91,7 +93,7 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("USER_PHONE", user.phoneNumber)
                     editor.putString("USER_PROFILE", user.photoUrl.toString())
                     //Toast.makeText(this, "All okay. Nice", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    val intent = Intent(this@LoginActivity, AwareActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
