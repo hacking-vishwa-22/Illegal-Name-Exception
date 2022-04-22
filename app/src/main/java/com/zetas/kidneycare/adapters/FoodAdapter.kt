@@ -4,8 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-/*class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
-    private val differCallBack = object : DiffUtil.ItemCallBack
+class FoodAdapter : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         TODO("Not yet implemented")
     }
@@ -21,4 +20,4 @@ import androidx.recyclerview.widget.RecyclerView
     inner class FoodViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
 
 
-}*/
+}
