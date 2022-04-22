@@ -35,29 +35,30 @@
                 android:layout_height="wrap_content"
                 >
                 <RadioButton
+                    android:id="@+id/btn1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Not Suffering from CKD"/>
+                    android:text="I am on Stage 1"/>
                 <RadioButton
+                    android:id="@+id/btn2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stage 1"/>
+                    android:text="I am on Stage 2"/>
                 <RadioButton
+                    android:id="@+id/btn3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stage 2"/>
+                    android:text="I am on Stage 3"/>
                 <RadioButton
+                    android:id="@+id/btn4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stage 3"/>
+                    android:text="I am on Stage 4"/>
                 <RadioButton
+                    android:id="@+id/btn5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stage 4"/>
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stage 5"/>
+                    android:text="I am on Stage 5"/>
             </RadioGroup>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,6 +74,7 @@
                     android:textStyle="bold"
                     />
                 <EditText
+                    android:id="@+id/ageEt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minWidth="20dp"
@@ -81,29 +83,7 @@
                     android:layout_marginStart="40dp"
                     />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="4dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Gender"
-                    android:fontFamily="@font/source_sans_pro"
-                    android:textStyle="bold"
-                    />
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="male"/>
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="female"
-                    android:layout_marginStart="16dp"/>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,10 +91,36 @@
                 android:layout_marginTop="4dp"
                 >
                 <Switch
+                    android:id="@+id/veg_nonveg_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Vegetarian"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Non Vegetarian"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="8dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:padding="4dp"
+                    android:enabled="false"
+                    android:background="@color/teal_200"/>
             </LinearLayout>
         </LinearLayout>
 
