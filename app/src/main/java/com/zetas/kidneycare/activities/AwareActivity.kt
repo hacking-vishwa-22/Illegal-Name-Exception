@@ -1,5 +1,7 @@
 package com.zetas.kidneycare.activities
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -45,6 +47,23 @@ class AwareActivity : AppCompatActivity() {
         list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
 
         setTestsList(list)
+
+        //video button
+        binding.v1.setOnClickListener {
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=AMNlwB_CS_I"))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.setPackage("com.google.android.youtube")
+            startActivity(intent)
+        }
+
+        binding.v2.setOnClickListener {
+            val intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=PoZvYrvLbDU"))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.setPackage("com.google.android.youtube")
+            startActivity(intent)
+        }
 
     }
 
