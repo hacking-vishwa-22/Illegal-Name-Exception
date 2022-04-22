@@ -5,15 +5,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.zetas.kidneycare.MainActivity
 import com.zetas.kidneycare.R
 import com.zetas.kidneycare.databinding.ActivitySplashBinding
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class SplashActivity : AppCompatActivity() {
 
@@ -39,13 +38,19 @@ class SplashActivity : AppCompatActivity() {
 
             delay(3000L)
             if(auth.currentUser!=null){
-                var intent = Intent(this@SplashActivity, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@SplashActivity,"Welcome Back!",Toast.LENGTH_SHORT).show()
+                    var intent = Intent(this@SplashActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }else{
-                var intent = Intent(this@SplashActivity, LoginActivity::class.java)
-                startActivity(intent)
-                finish()
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@SplashActivity,"Please Login",Toast.LENGTH_SHORT).show()
+                    var intent = Intent(this@SplashActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
             }
 
 

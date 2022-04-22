@@ -2,6 +2,7 @@ package com.zetas.kidneycare.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -10,14 +11,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.zetas.kidneycare.MainActivity
-import com.zetas.kidneycare.R
 import com.zetas.kidneycare.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -33,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
        //init firebase auth
-        auth = Firebase.auth
+        auth = FirebaseAuth.getInstance()
 
 
 
@@ -72,8 +69,7 @@ class LoginActivity : AppCompatActivity() {
 
 
             } catch (e: ApiException) {
-                Toast.makeText(this@LoginActivity, "thing Went Wrong!", Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(this@LoginActivity, "Something Went Wrong! getting task : ${e.stackTrace}", Toast.LENGTH_LONG).show()
                 googleClient?.signOut()
             }
         }
@@ -85,7 +81,16 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this, OnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "Haha", Toast.LENGTH_SHORT).show()
+                    user = auth.currentUser!!
+                    val userPreferences = getSharedPreferences("UserDetails", MODE_PRIVATE)
+                    val editor = userPreferences.edit()
+                    editor.putString("USER_ID", user.uid)
+                    Log.d("####", "${user.displayName} \n ${user.email}")
+                    editor.putString("USER_NAME", user.displayName)
+                    editor.putString("USER_EMAIL", user.email)
+                    editor.putString("USER_PHONE", user.phoneNumber)
+                    editor.putString("USER_PROFILE", user.photoUrl.toString())
+                    //Toast.makeText(this, "All okay. Nice", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
