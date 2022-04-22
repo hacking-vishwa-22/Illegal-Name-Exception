@@ -1,18 +1,23 @@
 package com.zetas.kidneycare.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.zetas.kidneycare.R
+import com.zetas.kidneycare.adapters.AwareTestsAdapter
 import com.zetas.kidneycare.databinding.ActivityAwareBinding
-import kotlinx.coroutines.GlobalScope
+import com.zetas.kidneycare.models.AwareTestsModel
 
 class AwareActivity : AppCompatActivity() {
+
     lateinit var user: FirebaseUser
     lateinit var binding: ActivityAwareBinding
+    lateinit var testsAdapter: AwareTestsAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,21 @@ class AwareActivity : AppCompatActivity() {
             binding.ll2.visibility = View.GONE
         }
 
+        //DATA TO TEST LIST
+        var list = ArrayList<AwareTestsModel>()
+        list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
+        list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
+        list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
+        list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
 
+        setTestsList(list)
+
+    }
+
+    fun setTestsList(list: ArrayList<AwareTestsModel>) {
+        testsAdapter = AwareTestsAdapter(list)
+        val layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
+        binding.testsRv.layoutManager = layoutManager
+        binding.testsRv.adapter = testsAdapter
     }
 }

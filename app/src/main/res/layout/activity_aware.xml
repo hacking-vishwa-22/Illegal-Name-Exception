@@ -81,7 +81,8 @@
                 android:fontFamily="@font/dm_sans"
                 android:text="Are you already suffering from Chronic Kidney Disease?"
                 android:textColor="@color/dark_blue"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -175,7 +176,7 @@ Medication helps manage symptoms. In later stages, filtering the blood with a ma
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dm_sans"
-                android:text="What actually CKD is?"
+                android:text="Why you need to be careful?"
                 android:textColor="@color/dark_blue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -185,15 +186,164 @@ Medication helps manage symptoms. In later stages, filtering the blood with a ma
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/source_sans_pro"
-                android:text="The kidneys filter waste and excess fluid from the blood. As kidneys fail, waste builds up.
-Symptoms develop slowly and aren't specific to the disease. Some people have no symptoms at all and are diagnosed by a lab test.
-Medication helps manage symptoms. In later stages, filtering the blood with a machine (dialysis) or a transplant may be required.
+                android:text="Can have no symptoms, but people may experience:
+Whole body: fatigue, high blood pressure, loss of appetite, malaise, or water-electrolyte imbalance
+Also common: kidney damage, abnormal heart rhythm, failure to thrive, fluid in the lungs, insufficient urine production, itching, kidney failure, severe unintentional weight loss, or swelling
 "
                 android:textColor="#777373"
                 android:textSize="14sp" />
 
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/dm_sans"
+            android:text="Hear from Doctors"
+            android:textColor="@color/dark_blue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll4" />
+
+
+        <LinearLayout
+            android:id="@+id/ll5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text2">
+
+
+            <ImageView
+                android:id="@+id/v1"
+                android:layout_width="96dp"
+                android:layout_height="108dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/v1" />
+
+            <ImageView
+                android:id="@+id/v2"
+                android:layout_width="96dp"
+                android:layout_height="108dp"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@drawable/v2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_sans"
+                android:text="About the different Stages:"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="•	CKD stage 1 is eGFR greater than 90 mls/min, which is normal but there are some signs of kidney damage on other tests (eg. Blood or protein leak in urine, multiple cysts in the kidneys, single kidney)."
+                android:textColor="#777373"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="•	CKD stage 2 is eGFR 60-90 This is mildly decreased with some sign of kidney damage on other tests"
+                android:textColor="#777373"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="•	CKD stage 3a is eGFR 45-59 ml/min, a mild to moderate reduction in kidney function
+•	CKD stage 3b is eGFR 30-44 ml/min, a moderate to severe reduction in kidney function
+"
+                android:textColor="#777373"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="•	CKD stage 4 is eGFR 15-29 ml/min, a severe reduction in kidney function. You may need additional medications to support loss of certain functions of the kidneys."
+                android:textColor="#777373"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="•	CKD stage 5 is e GFR less than 15 ml/min, established kidney failure. Very likely to experience symptoms of kidney failure, when dialysis or a kidney transplant may be needed."
+                android:textColor="#777373"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll6">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dm_sans"
+                android:text="Possible tests to know whether you are suffering from CKD or not"
+                android:textColor="@color/dark_blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tests_rv"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:paddingBottom="120dp"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
