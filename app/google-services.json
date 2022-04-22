@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "342300055506-mdome1bpn6uvlv66220dr2jp9rmt5sm3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.zetas.kidneycare",
-            "certificate_hash": "31e87a222c62a2565bf2c64a2bbbd24499f23810"
-          }
-        },
-        {
           "client_id": "342300055506-tofis9smtni6mfit32gkh66q1lnjqbh7.apps.googleusercontent.com",
           "client_type": 3
         }
