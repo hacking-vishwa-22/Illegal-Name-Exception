@@ -65,6 +65,11 @@ class AwareActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.goToSurvey.setOnClickListener {
+            val goIntent = Intent(this@AwareActivity, SurveyActivity::class.java)
+            startActivity(goIntent)
+        }
+
     }
 
     fun setTestsList(list: ArrayList<AwareTestsModel>) {
