@@ -1,131 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.DetailsFragment">
 
-        <androidx.core.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/dm_sans"
+                android:text="Please Complete this Survey"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp">
+
+                <RadioButton
+                    android:id="@+id/btn1"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/dark_blue"
+                    android:text="I am on Stage 1" />
+
+                <RadioButton
+                    android:id="@+id/btn2"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/dark_blue"
+                    android:text="I am on Stage 2" />
+
+                <RadioButton
+                    android:id="@+id/btn3"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/dark_blue"
+                    android:text="I am on Stage 3" />
+
+                <RadioButton
+                    android:id="@+id/btn4"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/dark_blue"
+                    android:text="I am on Stage 4" />
+
+                <RadioButton
+                    android:id="@+id/btn5"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/dark_blue"
+                    android:text="I am on Stage 5" />
+            </RadioGroup>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="22dp"
-                    android:layout_marginTop="12dp"
-                    android:fontFamily="@font/dm_sans"
-                    android:text="Select you stage"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:text="Enter Age:"
+                    android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
 
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioButton
-                        android:id="@+id/btn1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="I am on Stage 1" />
-
-                    <RadioButton
-                        android:id="@+id/btn2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="I am on Stage 2" />
-
-                    <RadioButton
-                        android:id="@+id/btn3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="I am on Stage 3" />
-
-                    <RadioButton
-                        android:id="@+id/btn4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="I am on Stage 4" />
-
-                    <RadioButton
-                        android:id="@+id/btn5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="I am on Stage 5" />
-                </RadioGroup>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <EditText
+                    android:background="@drawable/age_bg"
+                    android:id="@+id/ageEt"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:text="Age"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/ageEt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
-                        android:hint="Enter Age"
-                        android:inputType="number"
-                        android:minWidth="20dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="horizontal">
-
-                    <Switch
-                        android:id="@+id/veg_nonveg_switch"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="Vegetarian" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Non Vegetarian" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="center">
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnSubmit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@color/teal_200"
-                        android:enabled="false"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:padding="4dp"
-                        android:text="Submit"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:layout_marginStart="4dp"
+                    android:textColor="#777373"
+                    android:hint="age"
+                    android:maxLength="2"
+                    android:cursorVisible="false"
+                    android:padding="8dp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:textSize="14sp"
+                    android:inputType="number" />
             </LinearLayout>
 
-        </androidx.core.widget.NestedScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:theme="@style/Theme.Switch"
+                    android:id="@+id/veg_nonveg_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:hint="Vegetarian" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:text="Non Vegetarian" />
+            </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_blue"
+                    android:enabled="false"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:padding="4dp"
+                    android:text="Submit"
+                    android:layout_marginTop="48dp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
