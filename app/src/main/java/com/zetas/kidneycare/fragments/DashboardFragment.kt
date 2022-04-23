@@ -100,6 +100,7 @@ class DashboardFragment : Fragment() {
         }
         binding.goDiet.setOnClickListener {
 
+            changeFragment(DietFragment())
         }
         binding.goCenters.setOnClickListener {
 

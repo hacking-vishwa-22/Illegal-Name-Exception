@@ -30,4 +30,8 @@
              colorControlHighlight, and colorSwitchThumbNormal. -->
 
     </style>
+    <style name="Theme.Scroll" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+    </style>
+
 </resources>

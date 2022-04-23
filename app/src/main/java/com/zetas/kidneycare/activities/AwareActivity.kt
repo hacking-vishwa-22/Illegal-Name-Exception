@@ -43,7 +43,7 @@ class AwareActivity : AppCompatActivity() {
                 if (userIsSurveyed == 1L) {
                     binding.goToSurvey.text = "Take the survey"
                 } else {
-                    binding.goToSurvey.text = "My Dashboard"
+                    binding.goToSurvey.text = "Take the survey"
                 }
             }
 

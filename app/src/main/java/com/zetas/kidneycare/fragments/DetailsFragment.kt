@@ -24,7 +24,7 @@ class DetailsFragment : Fragment() {
     lateinit var age: String
     lateinit var foodPref: String //v for veg and nv for non-veg
     var isSurveyed:Long  =1L  //1L -> Not surveyed and 2L means surveyed
-    var filledAllOptions: Boolean = true
+    var filledAllOptions: Int = 0
     lateinit var db: FirebaseFirestore
 
     override fun onCreateView(
@@ -47,6 +47,7 @@ class DetailsFragment : Fragment() {
         //Stage Handle
         binding.Rgroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
 
+            filledAllOptions = 1
             when (checkedId) {
                 R.id.btn1 -> stage = "1"
                 R.id.btn2 -> stage = "2"
@@ -55,7 +56,6 @@ class DetailsFragment : Fragment() {
                 R.id.btn5 -> stage = "5"
                 else -> {
                     Toast.makeText(context, "Please select one Option!", Toast.LENGTH_SHORT).show()
-                    filledAllOptions = false
                 }
             }
 
@@ -68,8 +68,9 @@ class DetailsFragment : Fragment() {
             override fun afterTextChanged(s: Editable) {
                 if (!s.toString().equals("")) {
                     age = binding.ageEt.text.toString()
+                    filledAllOptions = 2
                 } else {
-                    filledAllOptions = false
+
                 }
             }
         })
@@ -85,7 +86,7 @@ class DetailsFragment : Fragment() {
         })
 
         binding.btnSubmit.setOnClickListener {
-            if (filledAllOptions) {
+            if (filledAllOptions==2) {
 
                 //FIREBASE STORAGE
                 isSurveyed = 2L

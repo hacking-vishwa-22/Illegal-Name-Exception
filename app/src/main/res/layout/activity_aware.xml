@@ -16,13 +16,15 @@
             android:layout_height="wrap_content"
             android:background="@drawable/upper_bg"
             android:orientation="horizontal"
+            android:gravity="center_horizontal"
             android:paddingBottom="56dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
             <LinearLayout
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:orientation="vertical"
+                android:gravity="start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -56,9 +58,11 @@
                     android:textColor="@color/white"
                     android:textSize="12sp" />
             </LinearLayout>
+
             <ImageView
                 android:id="@+id/logout"
                 app:tint="@color/white"
+                android:layout_gravity="end"
                 android:layout_marginTop="12dp"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -74,7 +78,7 @@
             android:id="@+id/ll2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="12dp"
             android:background="#E3EA9E"
             android:orientation="vertical"
             android:paddingHorizontal="8dp"
@@ -205,7 +209,7 @@ Medication helps manage symptoms. In later stages, filtering the blood with a ma
                 android:fontFamily="@font/source_sans_pro"
                 android:text="Can have no symptoms, but people may experience:
 Whole body: fatigue, high blood pressure, loss of appetite, malaise, or water-electrolyte imbalance
-Also common: kidney damage, abnormal heart rhythm, failure to thrive, fluid in the lungs, insufficient urine production, itching, kidney failure, severe unintentional weight loss, or swelling
+Also common: kidney damage, abnormal heart rhythm, failure to thrive, fluid in the lungs, insufficient urine production, itching, kidney failure, severe unintentional weight loss, or swelling.
 "
                 android:textColor="#777373"
                 android:textSize="14sp" />
@@ -352,9 +356,10 @@ Also common: kidney damage, abnormal heart rhythm, failure to thrive, fluid in t
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/tests_rv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="220dp"
+                android:theme="@style/Theme.Scroll"
                 android:layout_marginTop="8dp"
-                android:paddingBottom="120dp">
+                >
 
             </androidx.recyclerview.widget.RecyclerView>
 
