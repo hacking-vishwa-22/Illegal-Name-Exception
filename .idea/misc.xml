@@ -3,21 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/drawable/age_bg.xml" value="0.1775" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/drawable/aware_upper_bg.xml" value="0.1945" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/drawable/footer_bg.xml" value="0.1945" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/drawable/green_bg.xml" value="0.1665" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/activity_main.xml" value="0.25025641025641027" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/activity_payment.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/activity_survey.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/food_item_layout.xml" value="0.25025641025641027" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/fragment_details.xml" value="0.24010416666666667" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/fragment_diet.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidProjects/hackathon_pcon/Illegal_Name_Exception/app/src/main/res/layout/fragment_payment.xml" value="0.25416666666666665" />
         <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/drawable/upper_bg.xml" value="0.1945" />
         <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/activity_aware.xml" value="0.19583333333333333" />
         <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/activity_login1.xml" value="0.19583333333333333" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/activity_payment.xml" value="0.1" />
         <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/activity_survey.xml" value="0.19583333333333333" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/fragment_dashboard.xml" value="0.10588235294117647" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/fragment_details.xml" value="0.1" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/fragment_pay_for_test.xml" value="0.1" />
-        <entry key="..\:/hack/Illegal_Name_Exception/app/src/main/res/layout/test_item_layout.xml" value="0.6" />
       </map>
     </option>
   </component>
