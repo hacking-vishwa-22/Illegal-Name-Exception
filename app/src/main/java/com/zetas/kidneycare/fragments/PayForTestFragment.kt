@@ -1,11 +1,14 @@
 package com.zetas.kidneycare.fragments
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.zetas.kidneycare.activities.PaymentActivity
 import com.zetas.kidneycare.databinding.FragmentPayForTestBinding
 
 class PayForTestFragment : Fragment() {
@@ -14,7 +17,12 @@ class PayForTestFragment : Fragment() {
     var c2: Boolean = false
     var c3: Boolean = false
     var c4: Boolean = false
-    var c5: Boolean = false
+
+    var t1: Int = 500
+    var t2: Int = 400
+    var t3: Int = 200
+    var t4: Int = 900
+    var totalAmt: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +40,7 @@ class PayForTestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var t1: Int = 500
-        var t2: Int = 400
-        var t3: Int = 200
-        var t4: Int = 900
-        var t5: Int = 1200
-        var totalAmt: Int = 0
+
 
         if (c1) {
             binding.goTest1.setOnClickListener {
@@ -113,30 +116,19 @@ class PayForTestFragment : Fragment() {
             }
         }
 
-        if (c5) {
-            binding.goTest5.setOnClickListener {
-                c5 = false
-                binding.goTest5.setBackgroundColor(Color.GRAY)
-                totalAmt = totalAmt - t5
-                binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
-            }
-        }
-        if (!c5) {
-
-            binding.goTest5.setOnClickListener {
-                c5 = true
-                binding.goTest5.setBackgroundColor(Color.GREEN)
-                totalAmt = t5 + totalAmt
-                binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
-            }
-        }
-
 
         binding.payBtn.setOnClickListener {
-            //TODO:Razorpay
+            if (totalAmt == 0) {
+                Toast.makeText(context, "Please select to proceed!", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(context, PaymentActivity::class.java)
+                intent.putExtra("amt", totalAmt.toString())
+                startActivity(intent)
+            }
 
         }
 
     }
+
 }
 

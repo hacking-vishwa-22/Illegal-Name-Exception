@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -28,6 +29,9 @@ class AwareActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAwareBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //forcing light theme
+
 
         //firebase user details
         user = FirebaseAuth.getInstance().currentUser!!
@@ -55,10 +59,10 @@ class AwareActivity : AppCompatActivity() {
 
             //DATA TO TEST LIST
             var list = ArrayList<AwareTestsModel>()
-            list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
-            list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
-            list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
-            list.add(AwareTestsModel("abc", "Rs. 6969 /-"))
+            list.add(AwareTestsModel("Blood pressure Checkup", "Rs. 500 /-"))
+            list.add(AwareTestsModel("Urine Test for Albumin", "Rs. 400 /-"))
+            list.add(AwareTestsModel("Blood test for GFR", "Rs. 900 /-"))
+            list.add(AwareTestsModel("Kidney ultrasound", "Rs. 1200 /-"))
 
             setTestsList(list)
 
