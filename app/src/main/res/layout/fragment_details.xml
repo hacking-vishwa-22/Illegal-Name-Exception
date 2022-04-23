@@ -28,6 +28,7 @@
                 android:textStyle="bold" />
 
             <RadioGroup
+                android:id="@+id/Rgroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp">
@@ -130,7 +131,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/dark_blue"
-                    android:enabled="false"
                     android:fontFamily="@font/source_sans_pro"
                     android:padding="4dp"
                     android:text="Submit"

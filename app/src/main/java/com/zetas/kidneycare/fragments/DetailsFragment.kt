@@ -1,81 +1,131 @@
 package com.zetas.kidneycare.fragments
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.Switch
+import android.widget.CompoundButton
+import android.widget.RadioGroup
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
+import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.zetas.kidneycare.R
-import java.math.RoundingMode.valueOf
+import com.zetas.kidneycare.USERCHECK
+import com.zetas.kidneycare.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment() {
 
-    lateinit var btnSubmit:AppCompatButton
-    lateinit var veg_nonveg_switch:Switch
-    lateinit var ageEt:EditText
-    lateinit var btn0: RadioButton
-    lateinit var btn00: RadioButton
-    lateinit var btn1: RadioButton
-    lateinit var btn2: RadioButton
-    lateinit var btn3: RadioButton
-    lateinit var btn4: RadioButton
-    lateinit var btn5: RadioButton
-    lateinit var idChecked:String
+    lateinit var binding: FragmentDetailsBinding
+    lateinit var stage: String
+    lateinit var age: String
+    lateinit var foodPref: String //v for veg and nv for non-veg
+    var isSurveyed:Long  =1L  //1L -> Not surveyed and 2L means surveyed
+    var filledAllOptions: Boolean = true
+    lateinit var db: FirebaseFirestore
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        Log.d("####","Loaded detailsFragment")
-        val view = inflater.inflate(R.layout.fragment_details, container, false)
-        veg_nonveg_switch = view.findViewById(R.id.veg_nonveg_switch)
-        ageEt = view.findViewById(R.id.ageEt)
-        btnSubmit = view.findViewById(R.id.btnSubmit)
-        btn1 = view.findViewById(R.id.btn1)
-        btn2 = view.findViewById(R.id.btn2)
-        btn3 = view.findViewById(R.id.btn3)
-        btn4 = view.findViewById(R.id.btn4)
-        btn5 = view.findViewById(R.id.btn5)
-        return view;
+
+
+        binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        val view: View = binding.getRoot()
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val db = FirebaseFirestore.getInstance()
-        if(checkAllOkay())
-            btnSubmit.isEnabled = true
-        val auth  = FirebaseAuth.getInstance()
-        btnSubmit.setOnClickListener {
-            val userDetails = hashMapOf(
-                "level" to "1",
-                "age" to (ageEt.text.toString()).toInt(),
-                "veg" to if(veg_nonveg_switch.isChecked) "nonveg" else "veg"
-            )
-            auth.currentUser?.email?.let { it1 -> db.collection("users").document(it1).set(userDetails) }
-        }
-    }
 
-    private fun checkAllOkay(): Boolean {
-        if(btn1.isChecked || btn2.isChecked || btn3.isChecked || btn4.isChecked || btn5.isChecked){
-            if(btn1.isChecked)   idChecked = "1"
-            val age = (ageEt.text.toString()).toInt()
-            if(age < 10 || age > 100){
-                Toast.makeText(context,"Age not allowed",Toast.LENGTH_SHORT).show()
-                return false
-            }else {
-                return true
+        //init firebase
+        db = FirebaseFirestore.getInstance()
+
+        //Stage Handle
+        binding.Rgroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+
+            when (checkedId) {
+                R.id.btn1 -> stage = "1"
+                R.id.btn2 -> stage = "2"
+                R.id.btn3 -> stage = "3"
+                R.id.btn4 -> stage = "4"
+                R.id.btn5 -> stage = "5"
+                else -> {
+                    Toast.makeText(context, "Please select one Option!", Toast.LENGTH_SHORT).show()
+                    filledAllOptions = false
+                }
             }
-        }else {
-            return false
+
+        })
+
+        //Age handling
+        binding.ageEt.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable) {
+                if (!s.toString().equals("")) {
+                    age = binding.ageEt.text.toString()
+                } else {
+                    filledAllOptions = false
+                }
+            }
+        })
+
+
+        //Food Pref Handling
+        binding.vegNonvegSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
+            foodPref = if (isChecked) {
+                "nv"
+            } else {
+                "v"
+            }
+        })
+
+        binding.btnSubmit.setOnClickListener {
+            if (filledAllOptions) {
+
+                //FIREBASE STORAGE
+                isSurveyed = 2L
+                var newPost: HashMap<String, Any> = HashMap()
+                newPost.put("stage", stage)
+                newPost.put("age", age)
+                newPost.put("foodPref", foodPref)
+                newPost.put("isSurveyed", isSurveyed)
+
+                db.collection("UserDetails")
+                    .document(FirebaseAuth.getInstance().currentUser?.email.toString()).set(newPost)
+                    .addOnCompleteListener(
+                        OnCompleteListener {
+                            if (it.isSuccessful) {
+                                changeFragment(DashboardFragment())
+                            } else {
+                                Toast.makeText(
+                                    context,
+                                    "Something Went Wrong! " + it.exception?.message,
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
+                            }
+                        })
+
+                changeFragment(DashboardFragment())
+
+
+            } else {
+                Toast.makeText(context, "Please fill all the options!", Toast.LENGTH_SHORT).show()
+            }
         }
+
     }
 
+    private fun changeFragment(fragment: Fragment) {
+        val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
+        fragmentTransaction?.apply {
+            replace(R.id.frameLayoutSurvey, fragment)
+            commit()
+        }
+    }
 }
