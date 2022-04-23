@@ -71,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
             } catch (e: ApiException) {
                 Toast.makeText(
                     this@LoginActivity,
-                    "Something Went Wrong! getting task : ${e.message}",
+                    "Something Went Wrong!",
                     Toast.LENGTH_LONG
                 ).show()
                 googleClient?.signOut()
