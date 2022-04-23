@@ -41,80 +41,88 @@ class PayForTestFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        if (c1) {
-            binding.goTest1.setOnClickListener {
+        binding.goTest1.setOnClickListener {
+            if (c1) {
                 c1 = false
                 binding.goTest1.setBackgroundColor(Color.GRAY)
                 totalAmt = totalAmt - t1
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
 
-            }
-
-        }
-
-        if (!c1) {
-            binding.goTest1.setOnClickListener {
+            } else {
                 c1 = true
                 binding.goTest1.setBackgroundColor(Color.GREEN)
                 totalAmt = t1 + totalAmt
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
 
             }
-
         }
 
-        if (c2) {
-            binding.goTest2.setOnClickListener {
+
+        binding.goTest2.setOnClickListener {
+            if (c2) {
+
                 c2 = false
                 binding.goTest2.setBackgroundColor(Color.GRAY)
                 totalAmt = totalAmt - t2
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
-            }
-        }
 
-        if (!c2) {
-            binding.goTest2.setOnClickListener {
+            } else {
+
                 c2 = true
                 binding.goTest2.setBackgroundColor(Color.GREEN)
                 totalAmt = t2 + totalAmt
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
+
             }
+
         }
 
-        if (c3) {
-            binding.goTest3.setOnClickListener {
+        binding.goTest3.setOnClickListener {
+            if (c3) {
+
                 c3 = false
                 binding.goTest3.setBackgroundColor(Color.GRAY)
                 totalAmt = totalAmt - t3
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
-            }
-        }
-        if (!c3) {
-            binding.goTest3.setOnClickListener {
+
+            } else {
+
                 c3 = true
                 binding.goTest3.setBackgroundColor(Color.GREEN)
                 totalAmt = t3 + totalAmt
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
+
             }
+
+
         }
 
-        if (c4) {
-            binding.goTest4.setOnClickListener {
+        binding.goTest4.setOnClickListener {
+            if (c4) {
+
                 c4 = false
                 binding.goTest4.setBackgroundColor(Color.GRAY)
                 totalAmt = totalAmt - t4
                 binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
+
+            } else {
+                binding.goTest4.setOnClickListener {
+                    c4 = true
+                    binding.goTest4.setBackgroundColor(Color.GREEN)
+                    totalAmt = t4 + totalAmt
+                    binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
+                }
             }
         }
-        if (!c4) {
-            binding.goTest4.setOnClickListener {
-                c4 = true
-                binding.goTest4.setBackgroundColor(Color.GREEN)
-                totalAmt = t4 + totalAmt
-                binding.totalPrice.text = "Rs. ${totalAmt.toString()} /-"
-            }
-        }
+
+
+
+
+
+
+
+
+
 
 
         binding.payBtn.setOnClickListener {
