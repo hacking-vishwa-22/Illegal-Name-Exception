@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.zetas.kidneycare.R
 import com.zetas.kidneycare.activities.LoginActivity
+import com.zetas.kidneycare.activities.MapActivity
 import com.zetas.kidneycare.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
@@ -103,7 +104,9 @@ class DashboardFragment : Fragment() {
             changeFragment(DietFragment())
         }
         binding.goCenters.setOnClickListener {
-
+            //todo: intent to MapActivity
+            val intent = Intent(context,MapActivity::class.java)
+            startActivity(intent)
         }
         binding.goLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
