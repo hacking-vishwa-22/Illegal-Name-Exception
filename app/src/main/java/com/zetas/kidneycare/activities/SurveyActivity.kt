@@ -17,7 +17,7 @@ class SurveyActivity : AppCompatActivity() {
 
         val checker = intent.getStringExtra("checker")
         if (checker.equals("YES")) {
-            changeFragment(DashboardFragment())
+            changeFragment(DetailsFragment())
         } else {
             changeFragment(DetailsFragment())
         }

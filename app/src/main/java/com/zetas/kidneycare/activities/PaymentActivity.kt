@@ -60,6 +60,7 @@ class PaymentActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(activity, "Error in payment: " + e.message, Toast.LENGTH_LONG).show()
             e.printStackTrace()
+            finish()
         }
     }
 }
