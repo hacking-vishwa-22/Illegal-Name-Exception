@@ -105,7 +105,7 @@ class DashboardFragment : Fragment() {
         }
         binding.goCenters.setOnClickListener {
             //todo: intent to MapActivity
-            val intent = Intent(context,MapActivity::class.java)
+            val intent = Intent(context, MapActivity::class.java)
             startActivity(intent)
         }
         binding.goLogout.setOnClickListener {
@@ -125,8 +125,10 @@ class DashboardFragment : Fragment() {
     private fun changeFragment(fragment: Fragment) {
         val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
         fragmentTransaction?.apply {
+            setCustomAnimations(R.anim.slide_in, R.anim.slide_out)
             replace(R.id.frameLayoutSurvey, fragment)
             commit()
         }
     }
+
 }

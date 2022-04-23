@@ -64,7 +64,7 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/source_sans_pro"
         android:paddingHorizontal="12dp"
-        android:text="Hello I am the best in development.Hello I am the best in developmentHello I am the best in developmentHello I am the best in developmentHello I am the best in developmentHello I am the best in developmentHello I am the best in developmentHello I am the best in developmentHello I am the best in development"
+        android:text="loading..."
         android:textAlignment="center"
         android:textColor="@color/grey"
         android:textSize="18dp"
@@ -128,15 +128,16 @@
             android:textStyle="bold"
 
             />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/go_oneMoreSurvey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/dark_blue"
+            android:fontFamily="@font/dm_sans"
             android:paddingVertical="2dp"
             android:text="Take Another Survey"
-            android:fontFamily="@font/dm_sans"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -149,9 +150,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="@color/dark_blue"
+            android:fontFamily="@font/dm_sans"
             android:paddingVertical="2dp"
             android:text="Logout"
-            android:fontFamily="@font/dm_sans"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"

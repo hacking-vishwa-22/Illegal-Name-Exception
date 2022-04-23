@@ -14,7 +14,6 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.zetas.kidneycare.R
-import com.zetas.kidneycare.USERCHECK
 import com.zetas.kidneycare.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment() {
@@ -22,8 +21,8 @@ class DetailsFragment : Fragment() {
     lateinit var binding: FragmentDetailsBinding
     lateinit var stage: String
     lateinit var age: String
-    lateinit var foodPref: String //v for veg and nv for non-veg
-    var isSurveyed:Long  =1L  //1L -> Not surveyed and 2L means surveyed
+    var foodPref: String="v" //v for veg and nv for non-veg
+    var isSurveyed: Long = 1L  //1L -> Not surveyed and 2L means surveyed
     var filledAllOptions: Int = 0
     lateinit var db: FirebaseFirestore
 
@@ -78,15 +77,15 @@ class DetailsFragment : Fragment() {
 
         //Food Pref Handling
         binding.vegNonvegSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { buttonView, isChecked ->
-            foodPref = if (isChecked) {
-                "nv"
-            } else {
-                "v"
+            if (isChecked) {
+                foodPref = "nv"
+            } else if (!isChecked) {
+                foodPref = "v"
             }
         })
 
         binding.btnSubmit.setOnClickListener {
-            if (filledAllOptions==2) {
+            if (filledAllOptions >= 2) {
 
                 //FIREBASE STORAGE
                 isSurveyed = 2L
@@ -125,6 +124,7 @@ class DetailsFragment : Fragment() {
     private fun changeFragment(fragment: Fragment) {
         val fragmentTransaction = activity?.supportFragmentManager?.beginTransaction()
         fragmentTransaction?.apply {
+            setCustomAnimations(R.anim.slide_in, R.anim.slide_out)
             replace(R.id.frameLayoutSurvey, fragment)
             commit()
         }

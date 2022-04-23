@@ -16,4 +16,8 @@ class MainActivity : AppCompatActivity() {
 //        Toast.makeText(this,"name : $USER_NAME \n phone = $USER_PHONE",Toast.LENGTH_SHORT).show()
 
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
 }
